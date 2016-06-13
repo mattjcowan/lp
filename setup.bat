@@ -121,6 +121,7 @@ if not exist .\servicestack-selfhost-example.bat goto create_example_runner
 goto after_create_example_runner
 
 :create_example_runner
+echo @echo off > .\servicestack-selfhost-example.bat
 echo SET mypath=%%~dp0>> .\servicestack-selfhost-example.bat
 echo %%mypath%%linqpad\lprun "%%mypath%%linqpad\queries\servicestack-selfhost-example.linq" 1338 >> .\servicestack-selfhost-example.bat
 
@@ -154,6 +155,7 @@ if not exist .\lp.bat goto create_lp
 goto after_create_lp
 
 :create_lp
+echo @echo off > .\lp.bat
 echo SET mypath=%%~dp0>> .\lp.bat
 echo %%mypath%%linqpad\lprun "%%mypath%%linqpad\queries\lprun-queries.linq" >> .\lp.bat
 
