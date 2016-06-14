@@ -253,8 +253,5 @@ paket-files/
 linqpad/ConnectionsV2.xml
 linqpad/LINQPad.exe.config
 linqpad/lprun.exe.config
-linqpad/queries/lprun-queries.linq
-linqpad/queries/servicestack-selfhost-example.linq
 linqpad/setup.ps1
-lp.bat
 servicestack-selfhost-example.bat
