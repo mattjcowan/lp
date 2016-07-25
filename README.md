@@ -1,7 +1,13 @@
 # lp
 Get started with LINQPad and the lprun cli scripting environment with one file.
 
-Clone the repo or download the setup.bat file, and from the command line, run:
+Clone the repo or download the setup.bat file:
+
+```
+powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/mattjcowan/lp/master/setup.bat -OutFile setup.bat"
+```
+
+From the command line, run:
 
 ```
 .\setup.bat
