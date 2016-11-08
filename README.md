@@ -1,4 +1,7 @@
 # lp
+
+## Getting Started
+
 Get started with LINQPad and the lprun cli scripting environment with one file.
 
 Clone the repo or download the setup.bat file:
