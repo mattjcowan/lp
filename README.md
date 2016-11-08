@@ -19,7 +19,7 @@ Refer to the [LINQPad](https://www.linqpad.net/) and [lprun](https://www.linqpad
 
 ## Sample scripts
 
-Script | Description | 
+Script | Description | |
 --- | --- | ---
 [**db-to-json.linq**](#db-to-jsonlinq)| Exports a database schema to a json file.  | [Source](https://github.com/mattjcowan/lp/blob/master/linqpad/queries/db-to-json.linq)
 
