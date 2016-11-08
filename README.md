@@ -20,7 +20,7 @@ Once everything is up and running, optionally add the directory to your path var
 
 Refer to the [LINQPad](https://www.linqpad.net/) and [lprun](https://www.linqpad.net/lprun.aspx) documentation for more information.
 
-## Sample scripts
+## Script Library
 
 Script | Description | |
 --- | --- | ---
