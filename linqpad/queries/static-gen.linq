@@ -152,14 +152,14 @@ public void CodeGen(ScriptArgs args)
 		}
 	}
 
-	// REGISTER TEMPLATES
+	// COMPILE TEMPLATES
 	var templateFiles = allTemplateFiles.Where(f => !Path.GetFileName(f).StartsWithIgnoreCase("_")).ToArray();
 	var templatePaths = new Dictionary<string, string>();
 	var templates = new Dictionary<string, Func<object, string>>();
 	foreach (var f in templateFiles)
 	{
 		var templateName = Path.GetFileNameWithoutExtension(f);
-        if (templateName == null)
+		if (templateName == null)
 			continue;
 
 		if (templates.ContainsKey(templateName))
@@ -181,7 +181,7 @@ public void CodeGen(ScriptArgs args)
 	
 	foreach (var template in templates)
 	{
-		var outputFileName = template.Key + ".cs";
+		var outputFileName = template.Key;
 		var outputFile = Path.Combine(args.OutputDir, outputFileName);
 
 		globalData["Template"] = new {
@@ -190,6 +190,7 @@ public void CodeGen(ScriptArgs args)
 			OutputFileName = outputFileName,
 			OutputFilePath = outputFile
 		};
+		
 		var generatedOutput = template.Value(globalData);
 		File.WriteAllText(outputFile, generatedOutput ?? string.Empty);
 	}
