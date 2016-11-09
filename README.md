@@ -26,6 +26,7 @@ Script | Description | |
 --- | --- | ---
 [**db-to-json.linq**](#db-to-jsonlinq)| Exports a database schema to a json file.  | [Source](https://github.com/mattjcowan/lp/blob/master/linqpad/queries/db-to-json.linq)
 [**static-gen.linq**](#static-genlinq)| Generate code or files using handlebars templates, json data, and linq scripts.  | [Source](https://github.com/mattjcowan/lp/blob/master/linqpad/queries/static-gen.linq)
+[**serve-api.linq**](#serve-apilinq)| Run a ServiceStack Self-Hosted API, by specifying a port and assemblies with ServiceStack Services.  | [Source](https://github.com/mattjcowan/lp/blob/master/linqpad/queries/serve-api.linq)
 
 ### **db-to-json.linq**
 
@@ -60,4 +61,19 @@ Run the script:
 ```
 .\linqpad\lprun.exe .\linqpad\queries\static-gen.linq /data=aw\data /templates=aw\templates /output=aw\output
 ```
+
+### **serve-api.linq**
+
+Rudimentary ServiceStack Self-Hosted API runner... For a more advanced dev server runner, check out [sswc](https://github.com/mjczone/sswc).
+
+Download the script:
+```
+powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/mattjcowan/lp/master/linqpad/queries/serve-api.linq -OutFile .\linqpad\queries\serve-api.linq"
+```
+
+Run the script:
+```
+.\linqpad\lprun.exe .\linqpad\queries\serve-api.linq 1338 path\to\assembly1.dll path\to\assembly2.dll path\to\assembly3.dll
+```
+
 
