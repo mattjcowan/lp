@@ -195,7 +195,9 @@ void CreateTableType(XDb xdb, XSchema schema, XTable table, string schemaDir, st
 			foreach (var column in table.Columns.Values.OrderBy(c => c.Ordinal))
 			{
 				var fieldName = config.ConvertTableColumnNameToFieldName(schema.Name, table.Name, column.Name);
-				var fieldCSharpType = config.GetCSharpTypeFromDbTypeName(schema.Name, table.Name, column.Name, column.DataTypeName);
+//				var fieldCSharpType = config.GetCSharpTypeFromDbTypeName(schema.Name, table.Name, column.Name, column.DataTypeName);
+				var fieldDataType = xdb.DataTypes.ContainsKey(column.DataTypeName) ? xdb.DataTypes[column.DataTypeName] : xdb.DataTypes["nvarchar"];
+				var fieldCSharpType = Type.GetType(fieldDataType.NetDataType);
 
 				var isSingularPrimaryKey = column.IsPrimaryKey && table.PrimaryKey.ColumnNames.Length == 1;
 				
@@ -219,13 +221,8 @@ void CreateTableType(XDb xdb, XSchema schema, XTable table, string schemaDir, st
 				}
 				block.AppendLine("[DataMember(Order = {0})]", column.Ordinal);
 				block.AppendLine("[Alias(\"{0}\")]", column.Name);
-				var fieldCSharpTypeName = fieldCSharpType.Name;
-				switch(fieldCSharpTypeName)
-				{
-					case "Int32": fieldCSharpTypeName = "int"; break;
-					case "String": fieldCSharpTypeName = "string"; break;
-				}
-				
+
+				var fieldCSharpTypeName = fieldDataType.NetDataTypeCSharpName;				
 				if (fieldCSharpType.IsValueType && column.IsNullable)
 					fieldCSharpTypeName += "?";				
 				
